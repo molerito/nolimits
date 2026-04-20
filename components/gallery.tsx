@@ -2,15 +2,44 @@
 
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
-import { useCallback } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/lib/config"
 
+interface GalleryImage {
+  src: string
+  alt: string
+}
+
 export function Gallery() {
+  const [images, setImages] = useState<GalleryImage[]>(siteConfig.gallery.images)
+  
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 4000, stopOnInteraction: false }),
   ])
+
+  useEffect(() => {
+    async function fetchImages() {
+      try {
+        const res = await fetch("/api/admin/gallery")
+        if (res.ok) {
+          const data = await res.json()
+          if (data.images && data.images.length > 0) {
+            setImages(
+              data.images.map((img: { url: string; filename: string }) => ({
+                src: img.url,
+                alt: img.filename,
+              }))
+            )
+          }
+        }
+      } catch {
+        // Si falla, usar imagenes por defecto del config
+      }
+    }
+    fetchImages()
+  }, [])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -39,7 +68,7 @@ export function Gallery() {
         <div className="relative">
           <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
             <div className="flex">
-              {siteConfig.gallery.images.map((image, index) => (
+              {images.map((image, index) => (
                 <div
                   key={index}
                   className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2"

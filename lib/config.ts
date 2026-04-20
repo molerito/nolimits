@@ -26,7 +26,7 @@ export const siteConfig = {
     ctaPrimary: "Reserva tu Clase Gratis",
     ctaSecondary: "Ver Servicios",
     scrollLabel: "Scroll hacia abajo",
-    backgroundImage: "/images/hero-fondo.jpg",
+    backgroundImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070",
   },
 
   // Services Section
@@ -136,14 +136,18 @@ export const siteConfig = {
       {
         icon: "MapPin",
         label: "Direccion",
-        value: "C. Álamos Bda. los Almendros, 2-4, 29580, Estacion de Cártama, Málaga",
+        value: "Calle Principal 123, Ciudad",
       },
       {
         icon: "Phone",
         label: "Telefono",
-        value: "+34 619 44 70 28",
+        value: "+34 600 123 456",
       },
-      
+      {
+        icon: "Mail",
+        label: "Email",
+        value: "info@nolimits.com",
+      },
       {
         icon: "Clock",
         label: "Horario",
@@ -161,7 +165,7 @@ export const siteConfig = {
       },
       phone: {
         label: "Telefono",
-        placeholder: "+34 600 123 456",
+        placeholder: "+34 600 000 000",
       },
       message: {
         label: "Mensaje",
@@ -174,9 +178,9 @@ export const siteConfig = {
   footer: {
     copyright: "No Limits. Todos los derechos reservados.",
     socialLinks: [
-      { icon: "Instagram", href: "https://instagram.com/nolimits.fit", label: "Instagram" },
-      { icon: "Facebook", href: "https://facebook.com/nolimits.fit", label: "Facebook" },
-      { icon: "Youtube", href: "https://youtube.com/nolimits.fit", label: "YouTube" },
+      { icon: "Instagram", href: "#", label: "Instagram" },
+      { icon: "Facebook", href: "#", label: "Facebook" },
+      { icon: "Youtube", href: "#", label: "YouTube" },
     ],
     legalLinks: [
       { label: "Términos y Condiciones", href: "/terminos-y-condiciones" },
@@ -187,7 +191,7 @@ export const siteConfig = {
 
   // WhatsApp
   whatsapp: {
-    number: "34619447028",
+    number: "34600123456",
     message: "Hola! Me gustaria obtener mas informacion sobre los entrenamientos.",
     ariaLabel: "Contactar por WhatsApp",
   },

@@ -7,9 +7,9 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main>
+    <main className="min-h-screen">
       <Navbar />
       <Hero />
       <Services />

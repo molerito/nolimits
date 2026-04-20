@@ -17,19 +17,16 @@ const iconMap: Record<string, LucideIcon> = {
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
+    phone: "",
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    const whatsappText = `Hola, soy ${formData.name}. ${formData.message}`
-    const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
-      whatsappText
-    )}`
-
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
-    setFormData({ name: "", message: "" })
+    console.log("Form submitted:", formData)
+    alert(siteConfig.contact.successMessage)
+    setFormData({ name: "", email: "", phone: "", message: "" })
   }
 
   const handleChange = (
@@ -104,6 +101,35 @@ export function Contact() {
                 />
               </div>
               <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  {siteConfig.contact.form.email.label}
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder={siteConfig.contact.form.email.placeholder}
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-secondary border-border"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                  {siteConfig.contact.form.phone.label}
+                </label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder={siteConfig.contact.form.phone.placeholder}
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="bg-secondary border-border"
+                />
+              </div>
+              <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   {siteConfig.contact.form.message.label}
                 </label>
@@ -114,7 +140,6 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  required
                   className="bg-secondary border-border resize-none"
                 />
               </div>
