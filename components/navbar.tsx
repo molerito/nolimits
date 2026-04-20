@@ -45,7 +45,10 @@ export function Navbar() {
             className="w-10 h-10 md:w-12 md:h-12 object-contain"
           />
           <span className="text-2xl font-black tracking-tight">
-            {siteConfig.brand.namePart1} <span className="text-primary">{siteConfig.brand.namePart2}</span>
+            {siteConfig.brand.namePart1} <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,221,0,0.8)]">
+                {siteConfig.brand.namePart2}
+              </span> 
+            
           </span>
         </a>
 
