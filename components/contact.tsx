@@ -17,7 +17,6 @@ const iconMap: Record<string, LucideIcon> = {
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     message: "",
   })
@@ -26,7 +25,7 @@ export function Contact() {
     e.preventDefault()
     
     // Construir el mensaje para WhatsApp
-    const whatsappMessage = `Hola! Soy ${formData.name}\n\n📧 Email: ${formData.email}\n📱 Teléfono: ${formData.phone}\n\n💬 Mensaje:\n${formData.message}`
+    const whatsappMessage = `Hola! Soy ${formData.name}\n\n📱 Teléfono: ${formData.phone}\n\n💬 Mensaje:\n${formData.message}`
     
     // Codificar el mensaje para URL
     const encodedMessage = encodeURIComponent(whatsappMessage)
@@ -38,10 +37,10 @@ export function Contact() {
     window.open(whatsappUrl, '_blank')
     
     // Mostrar mensaje de confirmación
-    alert(siteConfig.contact.successMessage)
+    //alert(siteConfig.contact.successMessage)
     
     // Limpiar formulario
-    setFormData({ name: "", email: "", phone: "", message: "" })
+    setFormData({ name: "", phone: "", message: "" })
   }
 
   const handleChange = (
@@ -115,22 +114,7 @@ export function Contact() {
                   className="bg-secondary border-border"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  {siteConfig.contact.form.email.label}
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder={siteConfig.contact.form.email.placeholder}
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-secondary border-border"
-                />
-              </div>
-              <div>
+             <div>
                 <label htmlFor="phone" className="block text-sm font-medium mb-2">
                   {siteConfig.contact.form.phone.label}
                 </label>

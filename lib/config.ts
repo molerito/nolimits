@@ -16,14 +16,14 @@ export const siteConfig = {
       { href: "#sobre-mi", label: "Sobre Mi" },
       { href: "#contacto", label: "Contacto" },
     ],
-    ctaButton: "Clase Gratis",
+    ctaButton: "Contacta sin compromiso",
   },
 
   // Hero Section
   hero: {
     badge: "Entrenamiento Personal",
     subtitle: "Supera tus limites y alcanza tu mejor version. Entrenamiento personalizado adaptado a tus objetivos.",
-    ctaPrimary: "Reserva tu Clase Gratis",
+    ctaPrimary: "Contacta sin compromiso",
     ctaSecondary: "Ver Servicios",
     scrollLabel: "Scroll hacia abajo",
     backgroundImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070",
@@ -125,12 +125,12 @@ export const siteConfig = {
   // Contact Section
   contact: {
     badge: "Contacto",
-    title: "Reserva tu",
-    titleHighlight: "Clase Gratis",
+    title: "Únete a nuestra familia",
+    titleHighlight: "No Limits",
     description: "Da el primer paso hacia tu transformacion. Contactanos y empieza hoy.",
     infoTitle: "Informacion de Contacto",
     formTitle: "Envianos un Mensaje",
-    submitButton: "Reservar Clase Gratis",
+    submitButton: "Contacta sin compromiso",
     successMessage: "Gracias por contactarnos. Te responderemos pronto.",
     info: [
       {
