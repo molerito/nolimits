@@ -4,12 +4,12 @@ import { isAuthenticated } from "@/lib/auth"
 
 // Gallery image prefix for blob storage
 const GALLERY_PREFIX = "gallery/"
-const MAX_FILE_SIZE = 50 * 1024 * 1024 // 50 MB en bytes
-const MAX_IMAGES = 40 // Máximo número de imágenes permitidas
+const MAX_FILE_SIZE = 2 * 1024 * 1024 // 50 MB en bytes
+const MAX_IMAGES = 20 // Máximo número de imágenes permitidas
 
 // Validar que el token de Vercel Blob está configurado
 function getBlobToken(): string {
-  const token = process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_NOLIMIT_READ_WRITE_TOKEN
+  const token = process.env.BLOB_READ_WRITE_TOKEN 
   if (!token) {
     throw new Error(
       "BLOB_READ_WRITE_TOKEN no configurado. Por favor, configura esta variable de entorno en .env.local"
