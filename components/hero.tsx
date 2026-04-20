@@ -34,10 +34,16 @@ export function Hero() {
               height={120}
               className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
             />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
-              <span className="text-foreground">{siteConfig.brand.namePart1}</span>{" "}
-              <span className="text-primary">{siteConfig.brand.namePart2}</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none">
+              <span className="bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent">
+                {siteConfig.brand.namePart1}
+              </span>{" "}
+              <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,221,0,0.8)]">
+                {siteConfig.brand.namePart2}
+              </span>
             </h1>
+
+
           </div>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
