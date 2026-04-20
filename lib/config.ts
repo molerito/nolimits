@@ -136,22 +136,22 @@ export const siteConfig = {
       {
         icon: "MapPin",
         label: "Direccion",
-        value: "Calle Principal 123, Ciudad",
+        value: "C. Álamos Bda. los Almendros, 2-4, 29580, Estacion de Cártama, Málaga",
       },
       {
         icon: "Phone",
         label: "Telefono",
-        value: "+34 600 123 456",
+        value: "+34 619 44 70 28",
       },
-      {
+   /*   {
         icon: "Mail",
         label: "Email",
         value: "info@nolimits.com",
-      },
+      },*/
       {
         icon: "Clock",
         label: "Horario",
-        value: "Lun - Vie: 7:00 - 21:00",
+        value: "Lun - Vie: 9:00 - 21:00",
       },
     ],
     form: {
@@ -191,7 +191,7 @@ export const siteConfig = {
 
   // WhatsApp
   whatsapp: {
-    number: "34600123456",
+    number: "34619447028",
     message: "Hola! Me gustaria obtener mas informacion sobre los entrenamientos.",
     ariaLabel: "Contactar por WhatsApp",
   },

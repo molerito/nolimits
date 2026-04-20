@@ -24,8 +24,23 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    
+    // Construir el mensaje para WhatsApp
+    const whatsappMessage = `Hola! Soy ${formData.name}\n\n📧 Email: ${formData.email}\n📱 Teléfono: ${formData.phone}\n\n💬 Mensaje:\n${formData.message}`
+    
+    // Codificar el mensaje para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage)
+    
+    // Crear URL de WhatsApp
+    const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodedMessage}`
+    
+    // Abrir WhatsApp en nueva ventana
+    window.open(whatsappUrl, '_blank')
+    
+    // Mostrar mensaje de confirmación
     alert(siteConfig.contact.successMessage)
+    
+    // Limpiar formulario
     setFormData({ name: "", email: "", phone: "", message: "" })
   }
 
