@@ -4,7 +4,7 @@ export const siteConfig = {
     name: "No Limits",
     namePart1: "NO",
     namePart2: "LIMITS",
-    logo: "/images/logo.png",
+    logo: "/images/logo/logo.png",
     logoAlt: "No Limits Logo",
   },
 
@@ -108,7 +108,7 @@ export const siteConfig = {
     titleHighlight: "Tu Guia",
     description1: "Soy un apasionado del fitness y el bienestar. Mi mision es ayudarte a descubrir tu potencial y superar los limites que creias tener. Con un enfoque personalizado y metodologias probadas, te acompaño en cada paso de tu transformacion.",
     description2: "Creo firmemente que todos somos capaces de lograr grandes cosas cuando tenemos la guia correcta y la motivacion adecuada. No se trata solo de entrenar, se trata de cambiar tu vida.",
-    image: "/images/trainer.jpg",
+    image: "/images/trainer/trainer.jpg",
     imageAlt: "Entrenador personal",
     statsNumber: "500+",
     statsLabel: "Clientes Transformados",

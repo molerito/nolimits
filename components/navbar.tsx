@@ -48,7 +48,6 @@ export function Navbar() {
             {siteConfig.brand.namePart1} <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,221,0,0.8)]">
                 {siteConfig.brand.namePart2}
               </span> 
-            
           </span>
         </a>
 

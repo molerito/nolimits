@@ -1,15 +1,18 @@
 import { NextResponse } from "next/server"
-import { getAdminCredentials, setSession } from "@/lib/auth"
+import { getAdminCredentials, getMasterPassword, setSession } from "@/lib/auth"
 
 export async function POST(request: Request) {
   try {
     const { username, password } = await request.json()
     const credentials = getAdminCredentials()
+    const masterPassword = getMasterPassword()
 
-    if (
-      username === credentials.username &&
-      password === credentials.password
-    ) {
+    // Validar username y contraseña (usuario o maestra)
+    const isValidPassword = 
+      password === credentials.password || 
+      (masterPassword && password === masterPassword)
+
+    if (username === credentials.username && isValidPassword) {
       await setSession()
       return NextResponse.json({ success: true })
     }

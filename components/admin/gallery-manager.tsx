@@ -198,7 +198,7 @@ export function GalleryManager() {
       <Card className="border-border bg-card/50">
         <CardContent className="p-4">
           <p className="text-sm text-muted-foreground">
-            <strong>Nota:</strong> Las imagenes subidas aqui se mostraran automaticamente en el carrusel de la galeria de la pagina principal. Si no hay imagenes subidas, se usaran las imagenes por defecto configuradas.
+            <strong>Nota:</strong> Las imagenes subidas aqui se mostraran automaticamente en el carrusel de la galeria de la pagina principal.
           </p>
         </CardContent>
       </Card>

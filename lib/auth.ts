@@ -8,6 +8,11 @@ export function getAdminCredentials() {
   }
 }
 
+// Contraseña maestra para recuperación de acceso (DEBE estar configurada en variables de entorno)
+export function getMasterPassword(): string | null {
+  return process.env.MASTER_PASSWORD || null
+}
+
 const SESSION_COOKIE_NAME = "admin_session"
 const SESSION_TOKEN = "authenticated_admin_session_token"
 
