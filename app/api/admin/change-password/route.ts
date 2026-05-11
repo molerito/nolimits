@@ -1,7 +1,7 @@
 import { writeFile, readFile } from "fs/promises"
 import { join } from "path"
 import { NextResponse } from "next/server"
-import { isAuthenticated } from "@/lib/auth"
+import { isAuthenticated, getUserRole, getAdminCredentials } from "@/lib/auth"
 
 export async function POST(request: Request) {
   const authenticated = await isAuthenticated()
@@ -10,23 +10,13 @@ export async function POST(request: Request) {
   }
 
   try {
+    const role = await getUserRole()
     const { currentPassword, newPassword } = await request.json()
 
-    if (!currentPassword || !newPassword) {
+    if (!newPassword) {
       return NextResponse.json(
-        { error: "Contraseña actual y nueva son requeridas" },
+        { error: "La nueva contraseña es requerida" },
         { status: 400 }
-      )
-    }
-
-    // Obtener contraseña actual del env
-    const adminPassword = process.env.ADMIN_PASSWORD || "nolimits2026"
-
-    // Validar que la contraseña actual sea correcta
-    if (currentPassword !== adminPassword) {
-      return NextResponse.json(
-        { error: "La contraseña actual es incorrecta" },
-        { status: 401 }
       )
     }
 
@@ -37,6 +27,29 @@ export async function POST(request: Request) {
         { status: 400 }
       )
     }
+
+    const credentials = getAdminCredentials()
+    const adminPassword = credentials.password
+
+    // Si es usuario normal, requiere verificación de contraseña actual
+    if (role === "user") {
+      if (!currentPassword) {
+        return NextResponse.json(
+          { error: "La contraseña actual es requerida" },
+          { status: 400 }
+        )
+      }
+
+      // Validar que la contraseña actual sea correcta
+      if (currentPassword !== adminPassword) {
+        return NextResponse.json(
+          { error: "La contraseña actual es incorrecta" },
+          { status: 401 }
+        )
+      }
+    }
+
+    // Si es superusuario, no requiere verificación
 
     // Actualizar .env.local
     const envPath = join(process.cwd(), ".env.local")
